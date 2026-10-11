@@ -1,12 +1,18 @@
 # Northwind Grid
 
-A control-room dashboard for Northwind, a fictional regional power grid operator with an evening peak of about 68 GW.
+Control-room analytics for Northwind, a fictional regional grid operator with an evening peak of about 68 GW. It's dark, dense and calm, in the spirit of a trading terminal rather than a sci-fi HUD: two panel shades, hairlines for depth, a muted colour for each fuel and a single amber accent.
 
-![Northwind Grid on a laptop](hero.jpg)
+![Northwind Grid](hero.jpg)
 
-Drag the amber cursor across the generation chart and the whole screen re-solves for that moment. System load, generation by fuel, reserves, the real-time price, the supply stack, interchange and binding constraints all update together. The default is 17:35, the evening peak, when the grid is tightest.
+## What to try
 
-Every number comes from a small model in `src/components/data/`. It holds a day of hourly demand and a merit-order dispatch, which stacks the cheapest generation first until demand is met, so the price and the marginal fuel are worked out rather than typed in. All of the data is made up.
+**System Load & Generation.** Drag the amber cursor across the generation chart and everything re-solves for that moment. The supply stack's demand line slides, the clearing price moves, the dispatched plants light up and the figures count to their new values. At midday, solar visibly pushes gas off the margin; the evening ramp brings it back.
+
+**Storage Fleet.** Twelve battery sites. Hover a row to preview its dispatch schedule and state of charge, and click to pin it.
+
+## How it works
+
+Every number comes from a small model in the code: a day of hourly demand, wind and solar, and a merit-order dispatch that stacks the cheapest generation first until demand is met. The price and the marginal fuel are worked out rather than typed in.
 
 ## Run it
 
@@ -17,19 +23,10 @@ npm run dev
 
 Then open the address Vite prints. `npm run build` writes a static site to `dist/` that you can host anywhere.
 
-## How it's built
+## Built with
 
-- **React and MUI**, using MUI's dark theme tuned to a near-black ground and a single amber accent.
-- **Recharts** for the generation area chart, the price sparkline and the supply stack.
-- **Tailwind CSS** for layout.
-- The screen is designed at 1440 x 960 and scales down to fit smaller windows.
-
-| File | What it does |
-|---|---|
-| `src/components/SystemLoad.tsx` | The whole screen |
-| `src/components/data/dispatch.ts` | Demand, fuel capacities and the merit-order solve |
-| `src/components/data/storage.ts` | Battery storage sites and their state of charge |
+React, Framer Motion, Lucide icons, Recharts, Tailwind CSS, Vite. Each screen is designed at 1440 x 960 and scales down to fit smaller windows.
 
 ## Licence
 
-MIT. Roboto is used under the SIL Open Font License.
+MIT. All data is made up.

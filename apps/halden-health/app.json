@@ -1,0 +1,21 @@
+{
+  "title": "Halden Health",
+  "tagline": "A capacity command centre for a three-hospital health system, with a 72-hour forecast you can scrub through.",
+  "tags": [
+    "data",
+    "healthcare",
+    "dashboard",
+    "light"
+  ],
+  "stack": [
+    "React",
+    "Framer Motion",
+    "Lucide icons",
+    "Recharts",
+    "Tailwind CSS",
+    "Vite"
+  ],
+  "image": "hero.jpg",
+  "demo": null,
+  "added": "2026-10-11"
+}

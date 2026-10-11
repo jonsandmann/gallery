@@ -1,8 +1,20 @@
 {
   "title": "Northwind Grid",
-  "tagline": "A control-room dashboard for a power grid operator, where one time cursor re-solves every panel.",
-  "tags": ["data", "energy", "dashboard", "dark", "mui"],
-  "stack": ["React", "MUI", "Recharts", "Vite"],
+  "tagline": "A control room for a power grid operator. Drag one time cursor and the whole grid re-solves.",
+  "tags": [
+    "data",
+    "energy",
+    "dashboard",
+    "dark"
+  ],
+  "stack": [
+    "React",
+    "Framer Motion",
+    "Lucide icons",
+    "Recharts",
+    "Tailwind CSS",
+    "Vite"
+  ],
   "image": "hero.jpg",
   "demo": null,
   "added": "2026-10-11"

@@ -34,14 +34,22 @@ const anchor = (tag) => tagName(tag).toLowerCase().replace(/[^a-z0-9]+/g, "-");
 // Markdown links do not render inside an HTML table cell on GitHub, so the cards use anchors.
 const links = (app) => [app.demo && `<a href="${app.demo}">Live demo</a>`, `<a href="apps/${app.slug}">Code</a>`].filter(Boolean).join(" · ");
 
+// A variant ("variantOf": "<slug>", "variant": "<label>") is the same app built another way. It gets no
+// card of its own; its parent's card links to it.
 function card(app) {
+  const variants = apps.filter((v) => v.variantOf === app.slug).map((v) => `<a href="apps/${v.slug}">${v.variant ?? v.title}</a>`);
   return `<a href="apps/${app.slug}"><img src="apps/${app.slug}/${app.image}" alt="${app.title}" width="100%"></a><br>` +
-    `<strong>${app.title}</strong><br>${app.tagline}<br>${links(app)}`;
+    `<strong>${app.title}</strong><br>${app.tagline}<br>${links(app)}` +
+    (variants.length ? `<br><sub>Also built with ${variants.join(" · ")}</sub>` : "");
 }
 
+for (const v of apps.filter((a) => a.variantOf)) {
+  if (!apps.some((a) => a.slug === v.variantOf)) throw new Error(`apps/${v.slug} is a variant of "${v.variantOf}", which does not exist`);
+}
+const cards = apps.filter((a) => !a.variantOf);
 const rows = [];
-for (let i = 0; i < apps.length; i += COLUMNS) {
-  const cells = apps.slice(i, i + COLUMNS).map((app) => `<td width="${100 / COLUMNS}%" valign="top">${card(app)}</td>`);
+for (let i = 0; i < cards.length; i += COLUMNS) {
+  const cells = cards.slice(i, i + COLUMNS).map((app) => `<td width="${100 / COLUMNS}%" valign="top">${card(app)}</td>`);
   rows.push(`<tr>${cells.join("")}</tr>`);
 }
 

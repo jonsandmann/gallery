@@ -1,0 +1,22 @@
+{
+  "title": "Ledgerline Revenue",
+  "tagline": "Revenue analytics for a software company: an ARR bridge that unfolds into accounts, and a cohort retention triangle.",
+  "tags": [
+    "data",
+    "finance",
+    "saas",
+    "dashboard",
+    "light"
+  ],
+  "stack": [
+    "React",
+    "Framer Motion",
+    "Lucide icons",
+    "Recharts",
+    "Tailwind CSS",
+    "Vite"
+  ],
+  "image": "hero.jpg",
+  "demo": null,
+  "added": "2026-10-11"
+}

@@ -1,0 +1,21 @@
+{
+  "title": "Fieldstone Merchandising",
+  "tagline": "Merchandising analytics for an apparel retailer, with a markdown planner where you drag the price.",
+  "tags": [
+    "data",
+    "retail",
+    "dashboard",
+    "light"
+  ],
+  "stack": [
+    "React",
+    "Framer Motion",
+    "Lucide icons",
+    "Recharts",
+    "Tailwind CSS",
+    "Vite"
+  ],
+  "image": "hero.jpg",
+  "demo": null,
+  "added": "2026-10-11"
+}
